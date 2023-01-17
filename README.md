@@ -1,8 +1,9 @@
 IMPORTANTE! despues de ejecutar el comando "git clone" debes hacer lo siguiente:
-1 Ejecutar el comando "composer install" para conseguir la carpeta vendor.
-2 Crear la carpeta .env y llenarla con los datos de la carpeta .env.example
-3 Usar el comando "php artisan key:generate" para generar la llave APP_KEY de la carpeta env
-4 y por último usar el comando "npm install" para tener todas las dependencias necesarias.
+
+- Ejecutar el comando "composer install" para conseguir la carpeta vendor.
+- Crear la carpeta .env y llenarla con los datos de la carpeta .env.example.
+- Usar el comando "php artisan key:generate" para generar la llave APP_KEY de la carpeta env.
+- y por último usar el comando "npm install" para tener todas las dependencias necesarias.
 
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
