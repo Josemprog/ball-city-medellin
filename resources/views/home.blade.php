@@ -12,9 +12,9 @@
         <!-- Favicon -->
         <link rel="shortcut icon" href="/img/icono-ball-city.ico" type="image/x-icon">
         <!-- assets de css y javascript para VITE -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @vite(['resources/css/app.scss', 'resources/js/app.js'])
     </head>
     <body>
-        
+        Hola mundo
     </body>
 </html>

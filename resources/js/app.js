@@ -1,2 +1,2 @@
-import './bootstrap';
-console.log('JS Funciona');
+// import './bootstrap';
+import * as bootstrap from 'bootstrap';
