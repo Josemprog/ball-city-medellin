@@ -15,6 +15,7 @@
   @vite(['resources/css/app.scss', 'resources/js/app.js'])
 </head>
 <body>
+  
   <!-- Barra de navegación -->       
   <nav class="navbar bg-body navbar-expand-lg sticky-top border-bottom" data-bs-theme="dark">
     <div class="container-fluid">
@@ -168,36 +169,38 @@
             <a href="#" class="stretched-link">Continue reading</a>
           </div>
           <div class="col-auto d-none d-lg-block">
-            <img src="/img/cmurillo.png" width="auto" height="250" alt="">
+            <img src="/img/cmurillo.jpg" width="auto" height="250" alt="">
           </div>
         </div>
       </div>
     </div>
   </div>
 
+  <hr class="container">
+
   <!-- Pie de página -->
-  <div class="container">
-    <footer class="py-5">
+  <div class="container-fluid text-white bg-dark bg-gradient">
+    <footer class="container py-5">
       <div class="row">
         <div class="col-6 col-md-2 mb-3">
           <h5>Section</h5>
           <ul class="nav flex-column">
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Home</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Features</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Pricing</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">FAQs</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">About</a></li>
           </ul>
         </div>
   
         <div class="col-6 col-md-2 mb-3">
           <h5>Section</h5>
           <ul class="nav flex-column">
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Home</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Features</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Pricing</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">FAQs</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">About</a></li>
           </ul>
         </div>
   
@@ -218,22 +221,22 @@
         <p>&copy; 2022 Company, Ball City - Medellín. All rights reserved.</p>
         <ul class="list-unstyled d-flex">
           <li class="ms-3">
-            <a class="link-dark" href="#">
+            <a class="link-light" href="#">
               <i class="bi bi-instagram"></i>
             </a>
           </li>
           <li class="ms-3">
-            <a class="link-dark" href="#">
+            <a class="link-light" href="#">
               <i class="bi bi-facebook"></i>
             </a>
           </li>
           <li class="ms-3">
-            <a class="link-dark" href="#">
+            <a class="link-light" href="#">
               <i class="bi bi-youtube"></i>
             </a>
           </li>
           <li class="ms-3">
-            <a class="link-dark" href="#">
+            <a class="link-light" href="#">
               <i class="bi bi-tiktok"></i>
             </a>
           </li>
