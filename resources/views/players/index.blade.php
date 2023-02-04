@@ -42,17 +42,18 @@
                     <td> {{ $player->libres }} </td>
                     <td> {{ $player->puntos }} </td>
                     <td>
-                        <a href="#">
+                        <a href="{{ route('players.show', $player->id) }}">
                             <i class="text-primary bi bi-eye-fill"></i>
                         </a>
                     </td>
                     <td>
-                        <a href="#">
+                        <a href="{{ route('players.edit', $player->id) }}">
                             <i class="text-info bi bi-pencil-square"></i>
                         </a>
                     </td>
                     <td>
-                        <form>
+                        <form action="{{ route('players.destroy', $player->id) }}" method="POST">
+                            @csrf @method('DELETE')
                             <button class="btn"><i class="text-danger bi bi-trash"></i></button>
                         </form>
                     </td>

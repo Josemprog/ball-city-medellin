@@ -40,7 +40,7 @@ class PlayerController extends Controller
     {
         Player::create($request->validated());
 
-        return redirect()->route('players.index');
+        return redirect()->route('players.index')->with('status', 'El jugador - ' . $request->nombre . ' - ha sido creado exitosamente!');
     }
 
     /**
@@ -51,7 +51,7 @@ class PlayerController extends Controller
      */
     public function show(Player $player)
     {
-        //
+        return view('players.show', ['player' => $player]);
     }
 
     /**
@@ -62,7 +62,7 @@ class PlayerController extends Controller
      */
     public function edit(Player $player)
     {
-        //
+        return view('players.edit', ['player' => $player]);
     }
 
     /**
@@ -72,9 +72,12 @@ class PlayerController extends Controller
      * @param  \App\Models\Player  $player
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Player $player)
+    public function update(SavePlayerRequest $request, Player $player)
     {
-        //
+        $player->update($request->validated());
+
+        return redirect()->route('players.index', $player)->with('status', 'El jugador - ' . $request->nombre . ' - ha sido editado con exito!');
+        
     }
 
     /**
@@ -85,6 +88,10 @@ class PlayerController extends Controller
      */
     public function destroy(Player $player)
     {
-        //
+        $nombrejugadorborrado = $player->nombre;
+        
+        $player->delete();
+
+        return redirect()->route('players.index')->with('status', 'El jugador - ' . $nombrejugadorborrado . ' -  ha sido eliminado con exito!');
     }
 }

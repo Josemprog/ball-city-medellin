@@ -16,9 +16,14 @@
 </head>
 <body>
 
-<x-partials.navigation/>
-  
-{{ $slot }}
+  <x-partials.navigation/>
+  @if(session('status'))
+  <div class="alert alert-success" role="alert">
+    {{ session('status') }}
+  </div>
+  @endif
+    
+  {{ $slot }}
 
 <!-- Pie de página -->
 <div class="container-fluid text-white bg-dark bg-gradient">
