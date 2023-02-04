@@ -14,7 +14,7 @@
             <a class="nav-link" aria-current="page" href="{{ route('inicio') }}">Home</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="{{ route('jugadores') }}">Jugadores</a>
+            <a class="nav-link" href="{{ route('players.index') }}">Jugadores</a>
             </li>
             <li class="nav-item">
             <a class="nav-link" href="{{ route('videos') }}">Videos</a>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SavePlayerRequest;
 use App\Models\Player;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,9 @@ class PlayerController extends Controller
      */
     public function index()
     {
-        //
+        $players = Player::get();
+
+        return view('players.index', ['players' => $players]);  
     }
 
     /**
@@ -24,7 +27,7 @@ class PlayerController extends Controller
      */
     public function create()
     {
-        //
+        return view('players.create');
     }
 
     /**
@@ -33,9 +36,11 @@ class PlayerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SavePlayerRequest $request)
     {
-        //
+        Player::create($request->validated());
+
+        return redirect()->route('players.index');
     }
 
     /**
