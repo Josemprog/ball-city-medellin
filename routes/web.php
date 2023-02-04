@@ -4,6 +4,7 @@ use App\Http\Controllers\PlayerController;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'inicio')->name('inicio');
+
 Route::resource('/players', PlayerController::class);
 
 Route::view('/Videos', 'videos')->name('videos');

@@ -27,7 +27,7 @@ class PlayerController extends Controller
      */
     public function create()
     {
-        return view('players.create');
+        return view('players.create', ['player' => new Player]);
     }
 
     /**
@@ -40,7 +40,7 @@ class PlayerController extends Controller
     {
         Player::create($request->validated());
 
-        return redirect()->route('players.index')->with('status', 'El jugador - ' . $request->nombre . ' - ha sido creado exitosamente!');
+        return redirect()->route('players.index')->with('status', 'El jugador - ' . $request->nombre . ' del equipo ' . $request->equipo . ' - ha sido creado exitosamente!');
     }
 
     /**
@@ -76,7 +76,7 @@ class PlayerController extends Controller
     {
         $player->update($request->validated());
 
-        return redirect()->route('players.index', $player)->with('status', 'El jugador - ' . $request->nombre . ' - ha sido editado con exito!');
+        return redirect()->route('players.index', $player)->with('status', 'El jugador - ' . $request->nombre .' del equipo ' . $request->equipo . ' - ha sido editado exitosamente!');
         
     }
 
@@ -88,10 +88,8 @@ class PlayerController extends Controller
      */
     public function destroy(Player $player)
     {
-        $nombrejugadorborrado = $player->nombre;
-        
         $player->delete();
 
-        return redirect()->route('players.index')->with('status', 'El jugador - ' . $nombrejugadorborrado . ' -  ha sido eliminado con exito!');
+        return redirect()->route('players.index')->with('status', 'El jugador - ' . $player->nombre .' del equipo ' . $player->equipo . ' -  ha sido eliminado exitosamente!');
     }
 }

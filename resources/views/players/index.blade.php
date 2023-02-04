@@ -10,6 +10,9 @@
         <a href="{{ route('players.create') }}" class="btn btn-primary">
             <i class="bi bi-person-plus-fill"></i>
         </a>
+        <a href="{{ route('players.index') }}" class="btn btn-primary">
+            <i class="bi bi-arrow-clockwise"></i>
+        </a>
         <div class="table-responsive">
             <table class="table">
               <caption>List of users</caption>
