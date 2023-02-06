@@ -1,5 +1,8 @@
 <x-layouts.app>
     <div class="container">
+        <a href="{{ route('players.index') }}" class="btn btn-primary mt-4">
+            <i class="bi bi-arrow-return-left"> Volver </i>
+        </a>
         <div class="row m-5">
             <div class="col">
                 <h1>{{ $player->nombre, }} {{ $player->apellido }}</h1>
