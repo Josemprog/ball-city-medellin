@@ -19,7 +19,6 @@
               <thead>
                 <tr>
                     <th>#</th>
-                    <th>Número</th>
                     <th>Nombre</th>
                     <th>Apellido</th>
                     <th>Equipo</th>
@@ -36,7 +35,6 @@
                 @foreach($players as $player)
                 <tr class="text-center">
                     <td> {{ $player->id }} </td>
-                    <td> {{ $player->numero }} </td>
                     <td> {{ $player->nombre }} </td>
                     <td> {{ $player->apellido }} </td>
                     <td> {{ $player->equipo }} </td>
