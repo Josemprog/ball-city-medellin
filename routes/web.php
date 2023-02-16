@@ -18,6 +18,6 @@ Route::post('/registro', [RegisteredUserController::class, 'store']);
 Route::resource('/players', PlayerController::class);
 
 Route::view('/Videos', 'videos')->name('videos');
-Route::view('/Torneos', 'torneos')->name('torneos');
+Route::view('/Torneos', 'torneos')->name('torneos')->middleware('auth');
 Route::view('/Noticias', 'noticias')->name('noticias');
-Route::view('/Tienda', 'tienda')->name('tienda')->middleware('auth');
+Route::view('/Tienda', 'tienda')->name('tienda');

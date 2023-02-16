@@ -25,7 +25,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended()->with('status', 'LLEVE LO YO SU, WUAAU');
+        return redirect()->intended()->with('status', 'Iniciaste sesión');
 
 
     }
@@ -36,7 +36,7 @@ class AuthenticatedSessionController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return to_route('login')->with('status', 'Cerraste sesión bobo, WUAAU');
+        return to_route('login')->with('status', 'Cerraste sesión');
 
     }
 }
