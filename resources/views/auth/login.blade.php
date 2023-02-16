@@ -3,21 +3,45 @@
         <div class="row justify-content-center">
             <h1 class="text-center">Inicia Sesión</h1>
 
-            <form class="col-12 col-lg-6 mb-4">
+            <form action="{{ route('login') }}" method="POST" class="col-12 col-lg-6 mb-4">
+                @csrf
+
                 <div class="mb-3">
                     <label for="inputEmail" class="form-label">Correo Electrónico</label>
-                    <input id="inputEmail" type="email" class="form-control form-control-sm" placeholder="correo@ejemplo.com" aria-describedby="emailHelp">
+                    <input class="form-control form-control-sm" 
+                           name="email" id="inputEmail" 
+                           type="email" 
+                           placeholder="correo@ejemplo.com"
+                           value="{{ old('email') }}">
+                           @error('email')
+                               <div class="alert alert-danger" role="alert">
+                               {{ $message }}
+                               </div>        
+                           @enderror 
                     <div id="emailHelp" class="form-text">Nunca compartiremos su correo electrónico con nadie más.</div>
                 </div>
+
                 <div class="mb-3">
                     <label for="inputPassword" class="form-label">Contraseña</label>
-                    <input id="inputPassword" type="password" class="form-control form-control-sm" placeholder="Ingrese su contraseña...">
+                    <input class="form-control form-control-sm" 
+                           name="password" id="inputPassword" 
+                           type="password" 
+                           placeholder="Ingrese su contraseña...">
+                           @error('password')
+                               <div class="alert alert-danger" role="alert">
+                               {{ $message }}
+                               </div>        
+                           @enderror 
                 </div>
+
                 <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <input class="form-check-input" 
+                           name="remember" id="exampleCheck1"
+                           type="checkbox">
                     <label class="form-check-label" for="exampleCheck1">Recuérdame.</label>
                 </div>
 
+                {{-- BOTÓN --}}
                 <div class="d-grid gap-2">
                     <button type="submit" class="btn btn-dark btn-block">Iniciar Sesión</button>
                 </div>                

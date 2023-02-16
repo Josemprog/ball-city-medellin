@@ -7,34 +7,38 @@
     <div class="container">
         <h1>Estadísticas</h1>
 
-        <a href="{{ route('players.create') }}" class="btn btn-primary">
-            <i class="bi bi-person-plus-fill"></i>
-        </a>
+        @auth
+            <a href="{{ route('players.create') }}" class="btn btn-primary">
+                <i class="bi bi-person-plus-fill"></i>
+            </a>
+        @endauth
         <a href="{{ route('players.index') }}" class="btn btn-primary">
             <i class="bi bi-arrow-clockwise"></i>
         </a>
-        <div class="table-responsive">
-            <table class="table">
+        <div class="table-responsive mt-2">
+            <table class="table table-sm table-hover text-center">
               <caption>List of users</caption>
-              <thead>
+              <thead class="table-dark">
                 <tr>
-                    <th>#</th>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Equipo</th>
-                    <th>Posición</th>
-                    <th>Triples</th>
-                    <th>Tiros libres</th>
-                    <th>Puntos</th>
-                    <th>Ver</th>
-                    <th>Editar</th>
-                    <th>Borrar</th>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Equipo</th>
+                    <th scope="col">Posición</th>
+                    <th scope="col">Triples</th>
+                    <th scope="col">Tiros libres</th>
+                    <th scope="col">Puntos</th>
+                    <th scope="col">Ver</th>
+                    @auth
+                    <th scope="col">Editar</th>
+                    <th scope="col">Borrar</th>
+                    @endauth
                 </tr>
               </thead>
               <tbody>
                 @foreach($players as $player)
-                <tr class="text-center">
-                    <td> {{ $player->id }} </td>
+                <tr class="align-middle">
+                    <th scope="row"> {{ $player->id }} </th>
                     <td> {{ $player->nombre }} </td>
                     <td> {{ $player->apellido }} </td>
                     <td> {{ $player->equipo }} </td>
@@ -44,20 +48,22 @@
                     <td> {{ $player->puntos }} </td>
                     <td>
                         <a href="{{ route('players.show', $player->id) }}">
-                            <i class="text-primary bi bi-eye-fill"></i>
+                            <i class="btn text-primary bi bi-eye-fill"></i>
                         </a>
                     </td>
+                    @auth
                     <td>
                         <a href="{{ route('players.edit', $player->id) }}">
-                            <i class="text-info bi bi-pencil-square"></i>
+                            <i class="btn text-info bi bi-pencil-square"></i>
                         </a>
                     </td>
                     <td>
-                        <form action="{{ route('players.destroy', $player->id) }}" method="POST">
-                            @csrf @method('DELETE')
-                            <button class="btn"><i class="text-danger bi bi-trash"></i></button>
-                        </form>
+                    <form action="{{ route('players.destroy', $player->id) }}" method="POST">
+                        @csrf @method('DELETE')
+                        <button type="submit" class="btn"><i class="text-danger bi bi-trash"></i></button>
+                    </form>
                     </td>
+                    @endauth
                 </tr>
                 @endforeach
               </tbody>

@@ -11,25 +11,23 @@
         <!-- Links!! -->
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="{{ route('inicio') }}">Home</a>
-            </li>
-            @if (1 == 1)
-                <li class="nav-item">
-                   <a class="nav-link" href="{{ route('players.index') }}">Jugadores</a>
-                </li>                
-            @endif
-            <li class="nav-item">
-            <a class="nav-link" href="{{ route('videos') }}">Videos</a>
+            <a class="nav-link hover-text-white {{ request()->routeIs('inicio') ? 'active border-bottom' : '' }}" aria-current="page" href="{{ route('inicio') }}">Home</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="{{ route('torneos') }}">Torneos</a>
+                <a class="nav-link {{ request()->routeIs('players.index') ? 'active border-bottom' : '' }}" href="{{ route('players.index') }}">Jugadores</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link {{ request()->routeIs('videos') ? 'active border-bottom' : '' }}" href="{{ route('videos') }}">Videos</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link {{ request()->routeIs('torneos') ? 'active border-bottom' : '' }}" href="{{ route('torneos') }}">Torneos</a>
             </li>
             <li class="nav-item pe-2">
-            <a class="nav-link" href="{{ route('noticias') }}">Noticias</a>
+            <a class="nav-link {{ request()->routeIs('noticias') ? 'active border-bottom' : '' }}" href="{{ route('noticias') }}">Noticias</a>
             </li>
             <hr>
             <li class="nav-item px-2 border-start border-end" style="--bs-border-width: 2px;">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="{{ route('tienda') }}">
                 <i class="bi bi-cart4"></i>
                 Tienda
             </a>
@@ -42,27 +40,40 @@
                 <i class="bi bi-search"></i>
                 </button>
             </form>
-            @if (1 == 2)
+
+            @auth
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="bi bi-person-fill"></i>                        
-                Cuenta
+                    <i class="bi bi-person-fill"></i>                        
+                    {{ Auth::user()->name }}
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">
-                <li><a class="dropdown-item" href="#">Perfil</a></li>
-                <li><a class="dropdown-item" href="#">Configuración</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
+                    <li><a class="dropdown-item" href="#">Perfil</a></li>
+                    <li><a class="dropdown-item" href="#">Configuración</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    @if (1 == 1)
+                    <li><a class="dropdown-item" href="#">Admin</a></li>
+                    <li><hr class="dropdown-divider"></li>                        
+                    @endif
+                    <li>
+                        <form action="{{ route('logout') }} " method="POST">
+                            @csrf
+                            <button class="dropdown-item" type="submit">Cerrar sesión</button>
+                        </form>
+                    </li>
                 </ul>
             </li>                
-            @else
-            <li class="nav-item my-2 my-lg-0 mx-lg-2">
-                <a class="btn btn-outline-dark" href="{{ route('login') }}">Iniciar Sesión</a>
-            </li>
-            <li class="nav-item mb-2 mb-lg-0">
-                <a class="btn btn-outline-dark" href="{{ route('registro') }}">Registrarse</a>
-            </li>                
-            @endif
+            @endauth
+
+            @guest
+                <li class="nav-item my-2 my-lg-0 mx-lg-2">
+                    <a class="btn {{ request()->routeIs('login') ? 'btn-dark active' : 'btn-outline-dark' }}" href="{{ route('login') }}">Iniciar Sesión</a>
+                </li>
+                <li class="nav-item mb-2 mb-lg-0">
+                    <a class="btn {{ request()->routeIs('registro') ? 'btn-dark active' : 'btn-outline-dark' }}" href="{{ route('registro') }}">Registrarse</a>
+                </li>
+            @endguest
+
         </ul>
         </div>
     </div>
